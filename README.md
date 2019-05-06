@@ -23,9 +23,11 @@ OR
 Clone the source code and the exec files from here:
 
 HTTPS:
+
 ```shell
 
 $ git clone https://github.com/saltchang/rf-field-distance-calculator.git
+
 ```
 
 or SSH:
@@ -33,6 +35,7 @@ or SSH:
 ```shell
 
 $ git clone git@github.com:saltchang/rf-field-distance-calculator.git
+
 ```
 
 Enter the folder, build the excutable file:
@@ -40,7 +43,9 @@ Enter the folder, build the excutable file:
 ```shell
 
 $ cd rf-field-distance-calculator/
+
 $ go build
+
 ```
 
 After build, you will now have a excutable file in the current folder , just run it this way in the terminal:
@@ -48,7 +53,9 @@ After build, you will now have a excutable file in the current folder , just run
 ```shell
 
 $ ./rf-field-distance-calculator [HAAT] [Field strength]
+
 > [Result: distance]
+
 ```
 
 example:
@@ -56,8 +63,10 @@ example:
 ```shell
 
 $ ./rf-field-distance-calculator 30 60
+
 > Distance: 10.161 km
 > Done
+
 ```
 
 If you don't have Go in your computer,
@@ -68,9 +77,12 @@ Take macOS as an example:
 ```shell
 
 $ cd exec/macOS/
+
 $ ./rf-field-distance-calculator 30 60
+
 > Distance: 10.161 km
 > Done
+
 ```
 
 Thank you.
