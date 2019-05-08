@@ -1,4 +1,4 @@
-# RF Field Distance Calculator
+# RF Data Calculator 射頻資料計算程式
 
 Building more larger structure and more more functions now...
 May not use the feture in readme for now, sorry.
@@ -8,7 +8,7 @@ May not use the feture in readme for now, sorry.
 
 ## Introduction 基本介紹
 
-This is an engineering calculator application for calculating the RF data of broadcast radio stations.
+This is an engineering app for calculating the RF data of broadcast radio stations.
 Including rf power data, terrain height data, antenna data, and field strength data, etc.
 It stores data into xlsx format as a file.
 
