@@ -1,24 +1,35 @@
 # RF Field Distance Calculator
 
-This is a calculator application of engineering for calculating the RF field distance based on 1 ERP(kW), F(50, 50) Service Contour, FM Radio Channels 2 - 6, migrate from Javascript to Go.
+Building more larger structure and more more functions now...
+May not use the feture in readme for now, sorry.
 
-It returns the distance, by given the field strength (in dBu) and the HAAT (meters) as input arguments.
+目前正在建立更大的結構以及更多更完整的功能，
+在 readme 當中所說明的功能目前無法使用，十分抱歉..
 
-I got the javascript source code from the official website of [FCC](https://www.fcc.gov/media/radio/fm-and-tv-propagation-curves).
+## Introduction 基本介紹
 
-這是一個工程用途的電場距離計算程式，建立在 1kW 之有效輻射功率、F(50, 50,)官方公開圖表、以及調頻廣播 2 - 6 頻道。
+This is an engineering calculator application for calculating the RF data of broadcast radio stations.
+Including rf power data, terrain height data, antenna data, and field strength data, etc.
+It stores data into xlsx format as a file.
 
-我特別將本應用程式由 Javascript 移植至 Go，JS 原始碼取自於 [FCC](https://www.fcc.gov/media/radio/fm-and-tv-propagation-curves) 的官方網站。
+這是一個廣播電台發射站之射頻資料的工程計算程式，計算包括發射功率、天線、地形、場強在內等等射頻資料。並將資料儲存為 xlsx 格式的檔案。
 
-## Requirements
+Remark:
+It calculates the rf field distance based on 1 ERP(kW), F(50, 50) Service Contour, FM Radio Channels 2 - 6.
 
-- [Go](https://golang.org/) installed in your computer.
+I got the field distance calculating source code from the official website of [FCC](https://www.fcc.gov/media/radio/fm-and-tv-propagation-curves), and migrated it from Javascript to Go in this project.
 
-OR
+備註：
+程式中計算電場距離之公式建立在 1kW 之有效輻射功率、F(50, 50,)官方公開圖表、以及調頻廣播 2 - 6 頻道。其原始碼取自於 [FCC](https://www.fcc.gov/media/radio/fm-and-tv-propagation-curves) 的官方網站。
+在本專案當中，我將其由 Javascript 移植至 Go。
 
-- If you don't have Go and you don't want to install it, just run the excutable file in `exec/{yourOS}`.
+## Requirements 執行需求
 
-## Usage
+- For development, [Go](https://golang.org/) needs to install in your computer.
+
+- For normal using, just run the excutable file in `exec/{yourOS}`.
+
+## Usage 使用方法
 
 Clone the source code and the exec files from here:
 
