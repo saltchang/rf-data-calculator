@@ -1,4 +1,4 @@
-package dclr
+package helper
 
 import (
 	"fmt"
@@ -27,8 +27,8 @@ var (
 	f       = make([]float64, 1002, 1002)
 )
 
-// GetFMDistance func
-func GetFMDistance(xhaat, xfield float64) (float64, string) {
+// RFDistanceCalculator func
+func RFDistanceCalculator(xhaat, xfield float64) (float64, string) {
 
 	result := metric(xerp, xhaat, xfield, xdistance)
 	result = math.Round(result*1000) / 1000

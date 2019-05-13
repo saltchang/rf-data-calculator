@@ -1,4 +1,4 @@
-package rfcollec
+package models
 
 import "fmt"
 

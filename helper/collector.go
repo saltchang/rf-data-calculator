@@ -1,4 +1,4 @@
-package dcthr
+package helper
 
 import (
 	"encoding/json"

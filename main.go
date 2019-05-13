@@ -6,9 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/saltchang/rf-field-distance-calculator/dclr"
-	"github.com/saltchang/rf-field-distance-calculator/dcthr"
-	"github.com/saltchang/rf-field-distance-calculator/exwr"
+	"github.com/saltchang/rf-data-calculator/helper"
 )
 
 var (
@@ -17,10 +15,10 @@ var (
 )
 
 func main() {
-	dclr.GetFMDistance(xhaat, xfield)
-	data3to15, data10to50 := dcthr.GetHeightData(23.958585, 120.915759)
-	exwr.Height3to15ExcelWriter(data3to15)
-	exwr.Height10to50ExcelWriter(data10to50)
+	helper.RFDistanceCalculator(xhaat, xfield)
+	data3to15, data10to50 := helper.GetHeightData(23.958585, 120.915759)
+	helper.Height3to15ExcelWriter(data3to15)
+	helper.Height10to50ExcelWriter(data10to50)
 }
 
 // Get elevations by api from JawgMaps

@@ -1,4 +1,4 @@
-package exwr
+package helper
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 
 // Height3to15ExcelWriter func
 func Height3to15ExcelWriter(data [8][]float64) {
-	f, err := excelize.OpenFile("./model/height3to15km.xlsx")
+	f, err := excelize.OpenFile("./models/height3to15km.xlsx")
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -48,7 +48,7 @@ func Height3to15ExcelWriter(data [8][]float64) {
 
 // Height10to50ExcelWriter func
 func Height10to50ExcelWriter(data [8][]float64) {
-	f, err := excelize.OpenFile("./model/height10to50km.xlsx")
+	f, err := excelize.OpenFile("./models/height10to50km.xlsx")
 	if err != nil {
 		fmt.Println(err)
 		return
