@@ -6,7 +6,7 @@ This is an Go app for calculating the RF data of broadcast radio stations.
 
 2019-05-14
 
-[v1.0](https://github.com/saltchang/rf-data-calculator/releases/tag/v1.0) Released
+[v1.0 Released](https://github.com/saltchang/rf-data-calculator/releases/tag/v1.0)
 
 ## Feature 功能
 
@@ -29,11 +29,11 @@ $ go run main.go
 
 ## Dependency 依賴套件
 
-- [excelize](https://github.com/360EntSecGroup-Skylar/excelize) - Used to write the data as .xlsx files.
+- [excelize](https://github.com/360EntSecGroup-Skylar/excelize) - Used for write the data as .xlsx files.
 
-- [JawgMaps(API)](https://www.jawg.io/docs/apidocs/elevation/#examples) - Used to Request elevation data.
+- [JawgMaps(API)](https://www.jawg.io/docs/apidocs/elevation/#examples) - Used for request elevation data.
 
-- [Go Dep](https://github.com/golang/dep) - Used to manage the dependencies.
+- [Go Dep](https://github.com/golang/dep) - Used for manage the dependencies.
 
 For development, to install the dependencies by execute the following dep command:
 
@@ -49,4 +49,5 @@ It calculates the rf field distance based on 1 ERP(kW), F(50, 50) Service Contou
 I got the field distance calculating source code from the official website of [FCC](https://www.fcc.gov/media/radio/fm-and-tv-propagation-curves), and migrated it from Javascript to Go in this project.
 
 程式中計算電場距離之公式建立在 1kW 之有效輻射功率、F(50, 50,)官方公開圖表、以及調頻廣播 2 - 6 頻道。其原始碼取自於 [FCC](https://www.fcc.gov/media/radio/fm-and-tv-propagation-curves) 的官方網站。
+
 在本專案當中，我將其由 Javascript 移植至 Go。
