@@ -2,6 +2,9 @@ package writer
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"path/filepath"
 
 	"github.com/360EntSecGroup-Skylar/excelize"
 	"github.com/saltchang/rf-data-calculator/models"
@@ -10,12 +13,17 @@ import (
 // Height3to15ExcelWriter func
 func Height3to15ExcelWriter(rf *models.RFDATA) {
 
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	data := rf.Height.H3to15
 
-	f, err := excelize.OpenFile("./templates/height3to15km.xlsx")
+	f, err := excelize.OpenFile(dir + "/templates/height3to15km.xlsx")
 	if err != nil {
 		fmt.Println(err)
-		return
+		os.Exit(1)
 	}
 
 	title := rf.Basic.Name + "廣播電臺(" + fmt.Sprintf("%.1f", rf.Basic.Fequency) + rf.Basic.FQUnit + ")天線設置點平均地形高度估算表"
@@ -42,7 +50,7 @@ func Height3to15ExcelWriter(rf *models.RFDATA) {
 	f.SetCellValue("高度估算表", totalAvgCellName, rf.Height.Htoav3to15)
 
 	// Save xlsx file by the given path.
-	err = f.SaveAs("./test3to15.xlsx")
+	err = f.SaveAs(dir + "/" + rf.Basic.Name + "電台高度估算表(3-15km).xlsx")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -51,12 +59,17 @@ func Height3to15ExcelWriter(rf *models.RFDATA) {
 // Height10to50ExcelWriter func
 func Height10to50ExcelWriter(rf *models.RFDATA) {
 
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	data := rf.Height.H10to50
 
-	f, err := excelize.OpenFile("./templates/height10to50km.xlsx")
+	f, err := excelize.OpenFile(dir + "/templates/height10to50km.xlsx")
 	if err != nil {
 		fmt.Println(err)
-		return
+		os.Exit(1)
 	}
 
 	title := rf.Basic.Name + "廣播電臺(" + fmt.Sprintf("%.1f", rf.Basic.Fequency) + rf.Basic.FQUnit + ")天線設置點平均地形高度估算表"
@@ -87,7 +100,7 @@ func Height10to50ExcelWriter(rf *models.RFDATA) {
 	f.SetCellValue("高度估算表", totalAvgCellName, rf.Height.Htoav10to50)
 
 	// Save xlsx file by the given path.
-	err = f.SaveAs("./test10to50.xlsx")
+	err = f.SaveAs(dir + "/" + rf.Basic.Name + "電台高度估算表(10-50km).xlsx")
 	if err != nil {
 		fmt.Println(err)
 	}

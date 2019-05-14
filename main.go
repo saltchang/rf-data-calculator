@@ -23,21 +23,31 @@ var (
 
 func main() {
 
-	fmt.Print("請輸入代號以選擇功能(1 : 產生高度估算表, 2 : 計算預估場強傳送距離): ")
-	var function string
-	fmt.Scanln(&function)
-	if function == "1" {
-		generateHeightSheet()
-	} else if function == "2" {
-		computeFMDistance()
-	} else {
-		log.Fatal("輸入的功能代號錯誤")
+	for {
+		fmt.Print("請輸入代號以選擇功能(1 : 產生高度估算表, 2 : 計算預估場強傳送距離, 3 : 結束本程式): ")
+		var function string
+		fmt.Scanln(&function)
+		if function == "1" {
+			generateHeightSheet()
+		} else if function == "2" {
+			for {
+				rerun := computeFMDistance()
+				if !rerun {
+					break
+				}
+			}
+		} else if function == "3" {
+			break
+		} else {
+			log.Fatal("輸入的功能代號錯誤")
+		}
 	}
-
 	return
 }
 
 func generateHeightSheet() {
+	fmt.Printf("\n目前功能: 產生高度估算表\n\n")
+
 	fmt.Print("電台名稱(例: 地理中心): ")
 	fmt.Scanln(&rf.Basic.Name)
 
@@ -82,15 +92,23 @@ func generateHeightSheet() {
 	writer.Height3to15ExcelWriter(&rf)
 	writer.Height10to50ExcelWriter(&rf)
 
-	fmt.Printf("\n高度估算表已經順利產生。\n\n")
+	fmt.Printf("高度估算表已經順利產生。\n\n")
 
 	return
 }
 
-func computeFMDistance() {
+func computeFMDistance() bool {
+	fmt.Printf("\n目前功能: 計算預估場強傳送距離\n\n")
+
+	fmt.Printf("(如要返回選單，請輸入 'exit')\n\n")
+
 	fmt.Print("有效天線高度: ")
 	var haatstr string
 	fmt.Scanln(&haatstr)
+	if haatstr == "exit" {
+		fmt.Println()
+		return false
+	}
 	haat, err := strconv.ParseFloat(haatstr, 64)
 	if err != nil {
 		log.Fatal("有效天線高度錯誤")
@@ -99,12 +117,16 @@ func computeFMDistance() {
 	fmt.Print("預估54場強: ")
 	var f54str string
 	fmt.Scanln(&f54str)
+	if f54str == "exit" {
+		fmt.Println()
+		return false
+	}
 	f54, err := strconv.ParseFloat(f54str, 64)
 	if err != nil {
 		log.Fatal("預估54場強錯誤")
 	}
 
-	fmt.Printf("\n----------------------------------------\n\n計算結果：\n\n----------------------------------------\n\n")
+	fmt.Printf("\n----------------------------------------\n計算結果：\n----------------------------------------\n\n")
 
 	f60 := f54 + 6.0
 	f66 := f60 + 6.0
@@ -139,6 +161,8 @@ func computeFMDistance() {
 	fmt.Println()
 
 	fmt.Printf("----------------------------------------\n")
+
+	return true
 
 }
 

@@ -32,7 +32,11 @@ func RFDistanceCalculator(xhaat, xfield float64) (float64, string) {
 
 	result := metric(xerp, xhaat, xfield, xdistance)
 	result = math.Round(result*1000) / 1000
-	comment := comment()
+
+	comment := ""
+	if result < 0.01 {
+		comment = "(要在此方位測得預期的電場強度，距離將非常近，甚至無法測得。)\n"
+	}
 
 	// fmt.Println("Distance:", result, "km")
 	// fmt.Print(comment)
