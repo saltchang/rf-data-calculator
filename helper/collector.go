@@ -41,7 +41,9 @@ type Location struct {
 }
 
 // GetHeightData func
-func GetHeightData(RFLat, RFLng float64) ([8][]float64, [8][]float64) {
+func GetHeightData(RFLocation [2]float64) ([8][]float64, [8][]float64) {
+	RFLat := RFLocation[0]
+	RFLng := RFLocation[1]
 	var path3to15 [8]Path
 	var path10to50 [8]Path
 
@@ -55,7 +57,12 @@ func GetHeightData(RFLat, RFLng float64) ([8][]float64, [8][]float64) {
 	var data3to15 [8][]float64
 	var data10to50 [8][]float64
 
+	fmt.Println()
+
 	for i := 0; i < 8; i++ {
+		// 進度
+		fmt.Printf("\r(%d / 8)抓取高度資料中...", i+1)
+
 		point3to15start := [2]float64{path3to15[i].Start.Lat, path3to15[i].Start.Lng}
 		point3to15end := [2]float64{path3to15[i].End.Lat, path3to15[i].End.Lng}
 		data3to15[i] = getElevation(point3to15start, point3to15end, 61)
@@ -63,16 +70,16 @@ func GetHeightData(RFLat, RFLng float64) ([8][]float64, [8][]float64) {
 		point10to50start := [2]float64{path10to50[i].Start.Lat, path10to50[i].Start.Lng}
 		point10to50end := [2]float64{path10to50[i].End.Lat, path10to50[i].End.Lng}
 		data10to50[i] = getElevation(point10to50start, point10to50end, 41)
+	}
+	fmt.Printf("\r\n")
+	fmt.Printf("\r資料抓取完成！\n\n")
 
-		fmt.Printf("第 %d 筆高度資料獲取完成，共 8 筆資料...\n", i+1)
-	}
-
-	for _, data := range data3to15 {
-		fmt.Println(data)
-	}
-	for _, data := range data10to50 {
-		fmt.Println(data)
-	}
+	// for _, data := range data3to15 {
+	// 	fmt.Println(data)
+	// }
+	// for _, data := range data10to50 {
+	// 	fmt.Println(data)
+	// }
 
 	return data3to15, data10to50
 }
@@ -138,7 +145,7 @@ func getLocation(latIn, lngIn, theta, distance float64) (float64, float64) {
 	latOut = latOut * (180.0 / math.Pi) * 1.000002
 	lngOut = lngOut * (180.0 / math.Pi) * 1.000002
 
-	fmt.Printf("Output location: [%.7f, %.7f]\n", latOut, lngOut)
+	// fmt.Printf("Output location: [%.7f, %.7f]\n", latOut, lngOut)
 
 	return latOut, lngOut
 

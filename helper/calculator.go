@@ -34,8 +34,8 @@ func RFDistanceCalculator(xhaat, xfield float64) (float64, string) {
 	result = math.Round(result*1000) / 1000
 	comment := comment()
 
-	fmt.Println("Distance:", result, "km")
-	fmt.Println(comment)
+	// fmt.Println("Distance:", result, "km")
+	// fmt.Print(comment)
 
 	return result, comment
 }
@@ -602,7 +602,7 @@ func itplbv(lx, ly float64, x, y, z []float64, v []float64) {
 // comment
 func comment() string {
 	if flag {
-		return "Done\n(Free Space equation used to compute distance)"
+		return "(Free Space equation used to compute distance)\n(在任意距離內可能皆無法產生預期的電場強度)\n"
 	}
-	return "Done"
+	return ""
 }
