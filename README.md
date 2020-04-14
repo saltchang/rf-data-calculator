@@ -4,7 +4,7 @@ This is a Go app for calculating the RF data of broadcast radio stations.
 
 這是一個計算廣播電台發射站之射頻資料的 Go 應用。
 
-2019-05-14 - [v1.0 Released](https://github.com/saltchang/rf-data-calculator/releases/tag/v1.0)
+2020-04-14 - [v1.0.1 Released](https://github.com/saltchang/rf-data-calculator/releases/tag/v1.0.1)
 
 ## Feature 功能
 
@@ -18,7 +18,7 @@ This is a Go app for calculating the RF data of broadcast radio stations.
 
 ## Usage 使用方法
 
-- For normal using, [download](https://github.com/saltchang/rf-data-calculator/releases/tag/v1.0) the archive for your OS, extract it and run the `RF_dataApp` executable file.
+- For normal using, [download](https://github.com/saltchang/rf-data-calculator/releases/tag/v1.0.1) the archive for your OS, extract it and run the `RF_dataApp` executable file.
   
   **Remember to keep the templates folder with the executable file of app.**
 
