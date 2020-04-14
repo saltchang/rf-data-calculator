@@ -6,6 +6,7 @@ import (
 	"log"
 	"math"
 	"net/http"
+	"time"
 )
 
 var (
@@ -67,9 +68,13 @@ func GetHeightData(RFLocation [2]float64) ([8][]float64, [8][]float64) {
 		point3to15end := [2]float64{path3to15[i].End.Lat, path3to15[i].End.Lng}
 		data3to15[i] = getElevation(point3to15start, point3to15end, 61)
 
+		time.Sleep(3000 * time.Millisecond)
+
 		point10to50start := [2]float64{path10to50[i].Start.Lat, path10to50[i].Start.Lng}
 		point10to50end := [2]float64{path10to50[i].End.Lat, path10to50[i].End.Lng}
 		data10to50[i] = getElevation(point10to50start, point10to50end, 41)
+
+		time.Sleep(3000 * time.Millisecond)
 	}
 	fmt.Printf("\r\n")
 	fmt.Printf("\r資料抓取完成！\n\n")
@@ -101,6 +106,7 @@ func getElevation(pStart, pEnd [2]float64, samples int) []float64 {
 	var pointList []Point
 	err = json.NewDecoder(res.Body).Decode(&pointList)
 	if err != nil {
+		log.Fatal("JSON decode failed")
 		log.Fatal(err)
 	}
 
